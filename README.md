@@ -64,6 +64,15 @@ To add example products to the database, run:
 python populate_products.py
 ```
 
+## Running Tests
+
+To execute the unit tests, run:
+```sh
+pytest tests
+```
+
+This will check the core functionality of the application.
+
 ## Author
 
 Created by Dawid Draguła as part of final assignments for classes at WSEI.
