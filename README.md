@@ -65,7 +65,7 @@ npm run build
 
 ## Database Initialization
 
-Ensure that the database and tables are initialized before using the API. The application creates the necessary tables automatically on startup. If the database file is missing, ensure that the `@app.on_event("startup")` function correctly triggers table creation.
+Ensure that the database and tables are initialized after running the API. (A file `ecommerce.db` should be created on root.)
 
 ### Populating the Database
 
