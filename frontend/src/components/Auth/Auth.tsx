@@ -32,7 +32,7 @@ const Auth: React.FC<AuthProps> = ({ type }) => {
         try {
             await auth[type](username, password);
             setError('');
-            navigate(type === 'login' ? '/' : '/register');
+            navigate(type === 'login' ? '/' : '/login');
         } catch (error) {
             const message = (error as AuthError).response?.data?.detail || (error as Error).message;
             setError(message);

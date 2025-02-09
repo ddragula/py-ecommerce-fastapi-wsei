@@ -7,6 +7,11 @@ export const Header: React.FC = () => {
     const [username, setUsername] = React.useState<string | null>(getUsername());
     const navigate = useNavigate();
 
+    const handleLogout = () => {
+        logout();
+        navigate('/');
+    }
+
     useEffect(() => {
         addLoginListener('Header', setUsername);
     }, []);
@@ -16,7 +21,7 @@ export const Header: React.FC = () => {
         <div className="grow"></div>
         <button onClick={() => navigate('/basket')}>Basket</button>
         <button onClick={() => navigate('/orders')}>My Orders</button>
-        <button onClick={() => logout()}>Log out</button>
+        <button onClick={() => handleLogout()}>Log out</button>
     </>;
 
     const notLoggedContent = <>

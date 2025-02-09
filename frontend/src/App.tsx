@@ -1,7 +1,7 @@
 import Auth from "./components/Auth/Auth"
 import { Content } from "./components/Content/Content"
 import { Header } from "./components/Header/Header"
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { HashRouter as Router, Routes, Route } from "react-router-dom"
 import { MainPage } from "./pages/Main";
 import { Basket } from "./pages/Basket";
 import { Orders } from "./pages/Orders";
