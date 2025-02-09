@@ -135,6 +135,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+gitignored
 
 # Spyder project settings
 .spyderproject
