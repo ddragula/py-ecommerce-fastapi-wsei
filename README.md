@@ -2,6 +2,17 @@
 
 This project is an academic assignment for WSEI University, implementing an e-commerce API using FastAPI.
 
+## Table of Contents
+
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Running the Application](#running-the-application)
+- [API Documentation](#api-documentation)
+- [Static Frontend](#static-frontend)
+- [Database Initialization](#database-initialization)
+  - [Populating the Database](#populating-the-database)
+- [Running Tests](#running-tests)
+
 ## Getting Started
 
 ### Installation
@@ -50,7 +61,6 @@ The frontend is already built and included in the repository. If you need to mod
 ```sh
 cd frontend
 npm run build
-mv dist/* ../static/
 ```
 
 ## Database Initialization
@@ -68,7 +78,7 @@ python populate_products.py
 
 To execute the unit tests, run:
 ```sh
-pytest tests
+pytest tests/
 ```
 
 This will check the core functionality of the application.
