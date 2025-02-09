@@ -46,9 +46,23 @@ All API endpoints are prefixed with `/api`, ensuring separation between API func
 
 The application serves static frontend files from the `/` route. The `static/` directory contains these files, including `index.html`.
 
+The frontend is already built and included in the repository. If you need to modify it, navigate to the `frontend/` directory, make changes, and rebuild it with:
+```sh
+cd frontend
+npm run build
+mv dist/* ../static/
+```
+
 ## Database Initialization
 
 Ensure that the database and tables are initialized before using the API. The application creates the necessary tables automatically on startup. If the database file is missing, ensure that the `@app.on_event("startup")` function correctly triggers table creation.
+
+### Populating the Database
+
+To add example products to the database, run:
+```sh
+python populate_products.py
+```
 
 ## Author
 
