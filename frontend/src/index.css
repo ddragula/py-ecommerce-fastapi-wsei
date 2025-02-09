@@ -1,3 +1,17 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
 .capitalize {
     text-transform: capitalize;
+}
+
+.styled-table {
+    border-collapse: collapse;
+}
+
+.styled-table td, .styled-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
 }

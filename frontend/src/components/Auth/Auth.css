@@ -1,0 +1,23 @@
+.Auth-container,
+.Auth-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Auth-container {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 8px 16px;
+}
+
+.Auth-container {
+    max-width: 360px;
+    width: 100%;
+}
+
+.Auth-container form * {
+    display: block;
+    margin-bottom: 10px;
+    padding: 6px;
+}

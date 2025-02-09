@@ -1,5 +1,7 @@
-import React, { FormEvent, useState } from 'react';
-import { AuthError, login, register } from '../services/auth';
+import React, { FormEvent, useEffect, useState } from 'react';
+import { AuthError, login, register, getUsername } from '../../services/auth';
+import { useNavigate } from 'react-router-dom';
+import './Auth.css';
 
 const auth = { login, register}
 
@@ -12,6 +14,7 @@ const Auth: React.FC<AuthProps> = ({ type }) => {
     const [password, setPassword] = useState('');
     const [captcha, setCaptcha] = useState('');
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
@@ -29,14 +32,21 @@ const Auth: React.FC<AuthProps> = ({ type }) => {
         try {
             await auth[type](username, password);
             setError('');
+            navigate(type === 'login' ? '/' : '/register');
         } catch (error) {
             const message = (error as AuthError).response?.data?.detail || (error as Error).message;
             setError(message);
         }
     }
 
+    useEffect(() => {
+        if (getUsername()) {
+            navigate('/')
+        }
+    }, [navigate]);
+
     return (
-        <div>
+        <div className='Auth-container'>
             <h2 className='capitalize'>{type}</h2>
             <form onSubmit={handleSubmit}>
                 <input
@@ -44,20 +54,20 @@ const Auth: React.FC<AuthProps> = ({ type }) => {
                     placeholder="Username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                /><br/>
+                />
                 <input
                     type="password"
                     placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                /><br/>
+                />
                 {type === 'register' && <>
                     <input
                         type="text"
                         placeholder="2 + 2 = ?"
                         value={captcha}
                         onChange={(e) => setCaptcha(e.target.value)}
-                    /><br/>
+                    />
                 </>}
                 <button type="submit" className='capitalize'>{type}</button>
             </form>

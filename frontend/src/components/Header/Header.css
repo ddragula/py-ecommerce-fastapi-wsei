@@ -1,0 +1,13 @@
+.Header-container {
+    display: flex;
+    background: #a0c6fe;
+    padding: 3px 14px;
+}
+
+.Header-container .grow {
+    flex-grow: 1;
+}
+
+.Header-container button {
+    margin: 6px 0 6px 3px;
+}

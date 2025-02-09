@@ -79,14 +79,11 @@ def get_orders(current_user: User = Depends(get_current_user),
 
 
 @router.get("/{order_id}/xml")
-def get_order_xml(order_id: int,
-                  current_user: User = Depends(get_current_user),
-                  db: Session = Depends(get_db)):
-    order = db.query(Order).filter(
-        Order.id == order_id,
-        Order.user_id == current_user.id
-    ).first()
+def get_order_xml(order_id: int, db: Session = Depends(get_db)):
+    order = db.query(Order).filter(Order.id == order_id).first()
+
     if not order:
         raise HTTPException(status_code=404, detail="Order not found")
+
     xml_data = order_to_xml(order)
     return Response(content=xml_data, media_type="application/xml")
